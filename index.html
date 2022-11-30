@@ -1,0 +1,152 @@
+<body>
+  <input type="text" id="number" style="height:30px ; width: 200px;">
+  <br>
+  <br>
+  <button onclick="func()">Convert</button>
+  <br>
+  <br>
+  <input type="text" id="word" style="height:30px ; width: 200px;">
+
+<script>
+  function func(){
+      var num=parseInt(document.getElementById("number").value);
+      if(num>=10000)
+      {
+          document.getElementById("word").value="out of range";
+      }
+      else{ 
+          var n=num;
+          var ones=["one","two", "three", "four","five", "six", "seven", "eight", "nine"];
+  var ones_no=['1','2','3','4','5','6','7','8','9'];
+  var tens1= ["eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+  var tens= ["ten","twenty", "thirty", "forty", "fifty","sixty", "seventy", "eighty", "ninety"];
+
+  n = n.toString(); 
+  var str = " "; 
+  if(n.length==1)
+    {
+      for(var i=0;i<9;i++)
+      {
+      if(n[0]==ones_no[i])
+        str=ones[i];
+      }
+    }
+        
+  if(n.length==2)
+    {
+      if(n[1]==0){
+        for(var i=0;i<9;i++)
+        {
+          if(n[0]==ones_no[i])
+           str+=tens[i];
+        }
+      }
+      else if(n[0]==1 && n[1]!=0){
+      for(var i=0;i<9;i++)
+      {
+      if(n[1]==ones_no[i])
+        str+=tens1[i];
+      }
+      }
+      else{
+        for(var i=0;i<9;i++)
+       {
+      if(n[0]==ones_no[i])
+        str+=tens[i]+" ";
+      }
+         for(var i=0;i<9;i++)
+       {
+      if(n[1]==ones_no[i])
+        str+=ones[i]+" ";
+      }
+      }
+    }
+        
+    if(n.length==3){
+      if(n[1]==0 && n[2]==0){
+        
+        for(var i=0;i<9;i++)
+        {
+          if(n[0]==ones_no[i])
+           str+=ones[i]+" ";
+        }
+        str+=" hundred ";
+      }
+      
+      if(n[2]==0 && n[1]!=0)
+        {
+          for(var i=0;i<9;i++)
+        {
+          if(n[0]==ones_no[i])
+           str+=ones[i]+" ";
+        }
+        str+=" hundred and ";
+          
+          for(var i=0;i<9;i++)
+        {
+          if(n[1]==ones_no[i])
+           str+=tens[i];
+        }
+          
+        }
+      
+      if(n[1]==1 && n[2]!=0)
+        {
+           for(var i=0;i<9;i++)
+        {
+          if(n[0]==ones_no[i])
+           str+=ones[i]+" ";
+        }
+        str+=" hundred and ";
+          
+          for(var i=0;i<9;i++)
+        {
+          if(n[2]==ones_no[i])
+           str+=tens1[i];
+        }
+          
+        }
+      
+      if(n[1]==0 && n[2]!=0)
+        {
+           for(var i=0;i<9;i++)
+        {
+          if(n[0]==ones_no[i])
+           str+=ones[i]+" ";
+        }
+        str+=" hundred and ";
+          
+          for(var i=0;i<9;i++)
+        {
+          if(n[2]==ones_no[i])
+           str+=ones[i];
+        }
+          
+        }
+      
+      else if(n[1]!=0 && n[2]!=0 && n[1]!=1){
+         for(var i=0;i<9;i++)
+        {
+          if(n[0]==ones_no[i])
+           str+=ones[i]+" ";
+        }
+        str+=" hundred and ";
+        
+        for(var i=0;i<9;i++)
+       {
+      if(n[1]==ones_no[i])
+        str+=tens[i]+" ";
+      }
+         for(var i=0;i<9;i++)
+       {
+      if(n[2]==ones_no[i])
+        str+=ones[i]+" ";
+      }
+      }
+    
+    }
+  document.getElementById("word").value=str;                 
+      }
+  }
+</script>
+</body>
